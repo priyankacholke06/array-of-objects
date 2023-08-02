@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Handson 9</title>
+    <style>
+        * {
+            font-family:cursive;
+        }
+        body {
+            background-color: rgb(144, 255, 255);
+        }
+        h1 {
+            text-align: center;
+            color: rgb(191, 131, 10);
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>JAVA SCRIPT</h1>
+    <h3>----ARRAY OF OBJECTS----</h3>
+    <p><pre>let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+      {name: 'Baba', id: 101, marks : 23 },
+      {name: 'yaga', id: 200, marks : 45 },
+      {name: 'Wick', id: 115, marks : 75 } ] </pre></p>
+    <p>Q.1 We are interested in retrieving only the name of the students and all the names should be in caps. ['JOHN', 'BABA', 'YAGA', 'WICK'] ?</p>
+    <p><pre>Ans.1 const nameUpper=studentRecords.map(element=>(element.name.toUpperCase()));
+    console.log(nameUpper);
+    </pre>
+    </p>
+    <p>Q.2 Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks. ?</p>
+    <p><pre>Ans.2 const highMark=[];
+      studentRecords.forEach(element=>{
+         if(element.marks>50){
+            highMark.push(element) 
+         }
+     });
+     console.log(highMark);
+    </pre>
+    </p>
+    <p>Q.3 Retrieve the details of students who scored more than 50 marks and have id greater than 120. ?</p>
+    <p><pre>Ans.3 const highIdMarks=[];
+      studentRecords.forEach(item=>{
+      if(item.id>120 && item.marks>50){
+          highIdMarks.push(item)
+      }
+      });
+      console.log(highIdMarks);</pre>
+    </p>
+   <p> Question 4: Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</p>
+<p><pre>Ans.let sum = studentRecords.reduce((s, m) => s + m.marks, 0);
+         console.log(sum);
+</pre></p>
+<p>Question 6: This time we are required to print the sum of marks of the students with id > 120.</p>
+<p><pre>let sumofid = studentRecords.filter((a) => a.id > 120).reduce((acc, curr) => acc + curr.marks, 0);
+console.log(sumofid);
+</pre></p>
+<p>Question 7: This time we are required to print the total marks of the students with marks greater
+than 50 after a grace of 15 marks has been added to those students who scored less than 50.</p>
+<p><pre>Ans.
+let grace = studentRecords
+  .map(function (stu) {
+    if (stu.marks < 50) {
+      stu.marks += 15;
+    }
+    return stu;
+  })
+  .filter((stu) => stu.marks > 50)
+  .reduce((acc, curr) => acc + curr.marks, 0);
+console.log(grace);
+</pre></p>
+<p>
+
+Question 8:Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects.</p>
+<p><pre>Ans.let obj1 = { name: "Anwaar", class: "BA", rollno: "001" };
+let obj2 = { name: "Priyanka", class: "BE", rollno: "2" };
+let obj3 = { name: "Prajakta", class: "BCA", rollno: "3" };
+let obj4 = { name: "Dhanshree", class: "MCA", rollno: "4" };
+let obj5 = { name: "Riya", class: "ME", rollno: "5" };
+let obj6 = { name: "Prajakta", class: "MSC", rollno: "6" };
+
+let students = [
+{ name: "Anwaar", class: "BA", rollno: "1" },
+{ name: "Riya", class: "BE", rollno: "2" },
+{ name: "Prajakta", class: "BCA", rollno: "3"},
+{ name: "Dhanshree", class: "MCA", rollno: "4" },
+{ name: "Riya", class: "ME", rollno: "5" },
+{ name: "Avani", class: "MSC", rollno: "6" },
+ 
+];
+console.log(students);
+</pre></p>
+</body>
+</html>
